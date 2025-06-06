@@ -1,13 +1,18 @@
-version: "3"
-name: python3_workspace
-
+version: "3.8"
 services:
-  python3:
+  app:
     build:
       context: .
-      dockerfile: Dockerfile
     volumes:
-      - .:/app
-    working_dir: /app
-    stdin_open: true
+      - ./src:/root/src
+      - ./pyproject.toml:/root/pyproject.toml
+      - ./poetry.lock:/root/poetry.lock
+      - ./.git:/root/.git:ro
+      - ./.devcontainer:/root/.devcontainer
+      - ./.gitignore:/root/.gitignore
+      - ./README:/root/README
+      - ./docker-compose.yml:/root/docker-compose.yml
+      - ./Dockerfile:/root/Dockerfile
     tty: true
+
+

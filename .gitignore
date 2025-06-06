@@ -2,3 +2,10 @@ src/input/*
 src/output/*
 !src/input/.gitkeep
 !src/output/.gitkeep
+.venv
+.cache
+.dotnet
+.gnupg
+.vscode-server
+.ssh
+.local

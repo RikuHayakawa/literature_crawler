@@ -1,13 +1,12 @@
 {
-    "name": "python3_workspace",
+    "name": "py_crawler",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "app",
-    "workspaceFolder": "/workspace",
+    "service": "app", 
+    "workspaceFolder": "/root",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
-                "ms-python.vscode-pylance",
                 "ms-toolsai.jupyter",
                 "MS-CEINTL.vscode-language-pack-ja",
                 "charliermarsh.ruff",
@@ -16,22 +15,23 @@
                 "github.copilot-chat"
             ],
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/zsh",
-                "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.defaultInterpreterPath": "/usr/bin/python3",
                 "[python]": {
                     "editor.codeActionsOnSave": {
                         "source.fixAll.ruff": "explicit",
                         "source.organizeImports.ruff": "explicit"
                     },
+                    "editor.defaultFormatter": "charliermarsh.ruff",
                     "editor.formatOnSave": true,
-                    "editor.formatOnType": true
+                    "editor.formatOnType": true 
                 }
             }
         }
     },
     "forwardPorts": [
-        8002
-    ],
-    "remoteUser": "app",
-    "shutdownAction": "stopCompose"
+        8888
+    ], // コンテナ内のポートをローカルでアクセス可能にする
+    "remoteUser": "root", // コンテナ内のユーザーを指定
+    "shutdownAction": "stopCompose" // コンテナ停止時に docker-compose を停止する
 }

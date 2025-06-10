@@ -6,8 +6,9 @@ services:
       context: .
     volumes:
       - .:/app
-      - /app/.venv
+      - py_crawler_venv:/app/.venv
     stdin_open: true
     tty: true
-
+volumes:
+  py_crawler_venv:
 

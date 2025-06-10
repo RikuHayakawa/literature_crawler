@@ -43,12 +43,14 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 
 ENV PATH="/root/.local/bin:$PATH"
 
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+
 RUN poetry config virtualenvs.in-project true
 
 COPY pyproject.toml poetry.lock ./
 
-COPY src ./src
-
 RUN poetry install --no-root
+
+COPY src ./src
 
 CMD ["tail", "-f", "/dev/null"]

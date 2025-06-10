@@ -6,6 +6,7 @@ services:
       context: .
     volumes:
       - .:/app
+      - /app/.venv
     stdin_open: true
     tty: true
 

@@ -17,7 +17,7 @@
             ],
             "settings": {
                 "terminal.integrated.shell.linux": "/bin/bash",
-                "python.defaultInterpreterPath": "/usr/bin/python3",
+                "python.defaultInterpreterPath": "/app/.venv/bin/python",
                 "[python]": {
                     "editor.codeActionsOnSave": {
                         "source.fixAll.ruff": "explicit",

@@ -1,18 +1,11 @@
 version: "3.8"
 services:
-  app:
+  py_crawler:
     build:
       context: .
     volumes:
-      - ./src:/root/src
-      - ./pyproject.toml:/root/pyproject.toml
-      - ./poetry.lock:/root/poetry.lock
-      - ./.git:/root/.git:ro
-      - ./.devcontainer:/root/.devcontainer
-      - ./.gitignore:/root/.gitignore
-      - ./README:/root/README
-      - ./docker-compose.yml:/root/docker-compose.yml
-      - ./Dockerfile:/root/Dockerfile
+      - .:/app
+    stdin_open: true
     tty: true
 
 

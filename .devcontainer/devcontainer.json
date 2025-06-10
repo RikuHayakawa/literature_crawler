@@ -1,12 +1,13 @@
 {
-    "name": "py_crawler",
+    "workspaceFolder": "/app",
+    "name": "crawler",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "app", 
-    "workspaceFolder": "/root",
+    "service": "py_crawler",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
+                "ms-python.vscode-pylance",
                 "ms-toolsai.jupyter",
                 "MS-CEINTL.vscode-language-pack-ja",
                 "charliermarsh.ruff",
@@ -23,14 +24,14 @@
                         "source.organizeImports.ruff": "explicit"
                     },
                     "editor.formatOnSave": true,
-                    "editor.formatOnType": true 
+                    "editor.formatOnType": true
                 }
             }
         }
     },
     "forwardPorts": [
         8888
-    ], // コンテナ内のポートをローカルでアクセス可能にする
-    "remoteUser": "root", // コンテナ内のユーザーを指定
-    "shutdownAction": "stopCompose" // コンテナ停止時に docker-compose を停止する
+    ],
+    "remoteUser": "root",
+    "shutdownAction": "stopCompose"
 }

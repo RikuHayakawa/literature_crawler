@@ -1,6 +1,6 @@
 FROM python:3.11-buster
 
-WORKDIR /root
+WORKDIR /app
 
 # 基本的なツールをインストール
 RUN apt-get update && apt-get install -y \
@@ -47,8 +47,8 @@ RUN poetry config virtualenvs.in-project true
 
 COPY pyproject.toml poetry.lock ./
 
-RUN poetry install --no-root
+COPY src ./src
 
-COPY ./src ./src
+RUN poetry install --no-root
 
 CMD ["tail", "-f", "/dev/null"]
